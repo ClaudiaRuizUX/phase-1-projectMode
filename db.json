@@ -1,0 +1,19 @@
+{
+  "myDogResearch": [
+    {
+      "breed": "affenpinscher",
+      "note": "",
+      "id": 1
+    },
+    {
+      "breed": "african",
+      "note": "",
+      "id": 2
+    },
+    {
+      "breed": "akita",
+      "note": "",
+      "id": 3
+    }
+  ]
+}
