@@ -1,24 +1,14 @@
 {
-  "myDogResearch": [
+  "myCoinResearch": [
     {
-      "breed": "affenpinscher",
-      "note": "rerer",
+      "symbol": "sol",
+      "price": "213.66",
       "id": 1
     },
     {
-      "breed": "african",
-      "note": "",
+      "symbol": "usdt",
+      "price": "1",
       "id": 2
-    },
-    {
-      "breed": "akita",
-      "note": "",
-      "id": 3
-    },
-    {
-      "breed": "akita",
-      "note": "",
-      "id": 4
     }
   ]
 }

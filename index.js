@@ -1,72 +1,51 @@
-function fetchAllDogs(){
-    return fetch('https://dog.ceo/api/breeds/list/all')
+function fetchAllCoins(){
+    return fetch('https://api.coingecko.com/api/v3/coins')
     .then(reponse => reponse.json())
-    .then(json => json.message)
+    .then(json => json)
 }
-
-function onAddDog(dog){
-    return fetch('http://localhost:3000/myDogResearch',{
+function onAddCoin(symbol, price){
+    return fetch('http://localhost:3000/myCoinResearch',{
         method:"POST",
         headers: {
             "Content-Type": "application/json",
             "Accept": "application/json"           
         },
         body: JSON.stringify({
-            breed: dog,
-            note: ""
+            symbol: symbol,
+            price: price
         })
     })
 }
-
-function fetchMyDogs(){
-    return fetch('http://localhost:3000/myDogResearch')
-    .then(reponse => reponse.json())
-    .then(json => json)
-}
-
-function deleteMyDog(id){
-    return fetch(`http://localhost:3000/myDogResearch/${id}`,{
+function deleteMyCoin(id){
+    return fetch(`http://localhost:3000/myCoinResearch/${id}`,{
         method: "DELETE"
     })
 }
-
-function updateMyDog(id){
-    let breed = document.getElementById(id+'-breed').value; 
-    let note = document.getElementById(id+'-note').value; 
-
-    return fetch(`http://localhost:3000/myDogResearch/${id}`,{
-        method: "PUT",
-        headers: {
-            'Content-type': 'application/json; charset=UTF-8'
-        },
-        body: JSON.stringify({
-            breed: breed,
-            note: note
-        })
-    })
+function fetchMyCoins(){
+    return fetch('http://localhost:3000/myCoinResearch')
+    .then(reponse => reponse.json())
+    .then(json => json)
 }
-
 document.addEventListener('DOMContentLoaded', () => {
-    fetchAllDogs().then(dogs => {
-        Object.keys(dogs).forEach(dog => {
+    fetchAllCoins().then(coins => {
+        Object.keys(coins).forEach(coin => {
             let list = document.createElement('tr');
-            list.innerHTML = `<td>${dog}</td><td>
-            <button type="button" onclick="onAddDog('${dog}')" class="btn btn-primary">Add</button>
-            </td>`;
-            document.querySelector('#all-dogs').appendChild(list);
+            list.innerHTML = `<td><img src="${coins[coin].image.small}" alt="${coins[coin].id}"></img>
+            <span><strong>${coins[coin].name}</strong>${coins[coin].symbol}</span></td>
+            <td>${coins[coin].market_data.current_price.usd}</td>
+            <td><button type="button" onclick="onAddCoin('${coins[coin].symbol}', '${coins[coin].market_data.current_price.usd}')" class="btn btn-primary">Add</button></td>`;
+            document.querySelector('#all-coins').appendChild(list);
         });
     })
-
-    fetchMyDogs().then(dogs => {
-        dogs.forEach(dog => {
+    fetchMyCoins().then(coins => {
+        Object.keys(coins).forEach(coin => {
             let list = document.createElement('tr');
-            list.innerHTML = `<td><input id="${dog.id + '-breed'}" class="form-control" type="text" value="${dog.breed}"></td>
-            <td><input id="${dog.id + '-note'}" class="form-control" type="text" value="${dog.note}"></td>
-            <td><button type="button" onclick="updateMyDog(${dog.id})" class="btn btn-primary">update</button></td>
-            <td><button type="button" onclick="deleteMyDog(${dog.id})" class="btn btn-primary">delete</button>
-            </td>`;
-            document.querySelector('#my-dogs').appendChild(list);
+            list.innerHTML =
+            `
+            <td><span>${coins[coin].symbol}</span>${coins[coin].price}</td>
+            <td><button type="button" onclick="deleteMyCoin(${coins[coin].id})" class="btn btn-primary">delete</button></td>
+            `;
+            document.querySelector('#my-coins').appendChild(list);
         })
     })
-
 });

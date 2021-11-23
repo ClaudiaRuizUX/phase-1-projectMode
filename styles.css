@@ -1,7 +1,60 @@
-.table-container{
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&family=Work+Sans:wght@800&display=swap');
+
+body{
+    font-family:'Source Sans Pro', Helvetica, sans-serif;
+    font-size: 1.6rem;
+    background-color:#F8F9FC;
+} 
+table * {
+    border: none!important;
+}
+#all-coins tr {
+    border-top: 1px solid #E3E4E8!important;
+}
+.table thead tr, thead  *  {
+    border-bottom: 1px solid #F8F9FC !important;
+}
+h1, h4 {
+    text-align: center;
+}
+h1 {
+    font-family: 'Work Sans', Helvetica, sans-serif;
+    font-size: 7.8rem;
+    color: #232323;
+}
+h4 {
+    color:#17181C;
+    font-size:2rem;
+    font-weight:600;
+}
+.allCoins-container thead tr th {
+    text-transform:uppercase;
+    color:#949497;
+    font-size:1.4rem;
+    font-weight:400;
+}
+.allCoins-container{
     display:block;
     position:relative;
-    height: 300px;
-    overflow: auto;
+    max-height: 37rem;
+    max-width: 60rem;
+    overflow: scroll;
+    margin: 0 auto;
+    padding: 2rem;
 
+    background: rgb(246,247,250,);
+    background: linear-gradient(180deg, rgba(246,247,250,1) 0%, rgba(246,247,250,1) 9%, rgba(255,255,255,1) 41%, rgba(255,255,255,1) 100%);
+    -webkit-box-shadow: 0px 50px 50px 19px rgba(120,129,135,0.19); 
+    box-shadow: 0px 50px 50px 19px rgba(120,129,135,0.19);
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+}
+tbody#all-coins td img {
+    float: left;
+    margin-right:1.2rem;
+
+}
+tbody#all-coins td span strong {
+    display:block;
 }
