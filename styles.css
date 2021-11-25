@@ -37,10 +37,9 @@ h4 {
     display:block;
     position:relative;
     max-height: 37rem;
-    max-width: 60rem;
+    max-width: 50rem;
     overflow: scroll;
     margin: 0 auto;
-    padding: 2rem;
 
     background: rgb(246,247,250,);
     background: linear-gradient(180deg, rgba(246,247,250,1) 0%, rgba(246,247,250,1) 9%, rgba(255,255,255,1) 41%, rgba(255,255,255,1) 100%);
@@ -50,11 +49,63 @@ h4 {
     -moz-border-radius: 12px;
     border-radius: 12px;
 }
+
+/* LIST TD------ */
+tbody#all-coins td {
+    padding: 1.2rem 0;
+
+}
 tbody#all-coins td img {
     float: left;
     margin-right:1.2rem;
 
 }
+tbody#all-coins td span {
+    line-height:1.2;
+    text-transform:uppercase;
+    color:#8D8F98;
+}
 tbody#all-coins td span strong {
     display:block;
+    text-transform:none;
+    color:#34363A;
+    font-size:1.7rem;
+}
+tbody#all-coins td.price {
+    padding-left:1rem;
+    font-weight: 600;
+    font-size:1.75rem;
+    color:#515256;
+}
+tbody#all-coins td button {
+    visibility: hidden;
+    width:4.2rem;
+    height:4.2rem;
+    margin-top:0.5rem;
+    font-size: 2.6rem;
+    font-weight: light;
+    line-height:1;
+    background-color:#4E59F2;
+    color: white;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+/* LIST TR------ */
+div.allCoins-container tr th.coinHeader {
+    padding-left: 2.4rem;
+}
+tbody#all-coins tr:hover {
+    background-color:#EBF0FF;
+}
+tbody#all-coins tr:hover button {
+    visibility: visible;
+    background-color:#4E59F2;
+}
+tbody#all-coins td img {
+    padding-left:2.5rem;
+}
+tbody#all-coins td.addedCoin {
+    color: red;
+    border: 1px solid red !important;
 }

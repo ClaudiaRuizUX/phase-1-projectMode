@@ -3,7 +3,10 @@ function fetchAllCoins(){
     .then(reponse => reponse.json())
     .then(json => json)
 }
-function onAddCoin(symbol, price){
+function onAddCoin(id, symbol, price){
+    // let addedCoin = document.getElementById(id);
+    // addedCoin.setAttribute("class", "addedCoin");
+
     return fetch('http://localhost:3000/myCoinResearch',{
         method:"POST",
         headers: {
@@ -14,7 +17,7 @@ function onAddCoin(symbol, price){
             symbol: symbol,
             price: price
         })
-    })
+    }) 
 }
 function deleteMyCoin(id){
     return fetch(`http://localhost:3000/myCoinResearch/${id}`,{
@@ -30,10 +33,15 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchAllCoins().then(coins => {
         Object.keys(coins).forEach(coin => {
             let list = document.createElement('tr');
+            list.setAttribute("id", `${coins[coin].name}`)
+
+            let coinPrice = coins[coin].market_data.current_price.usd;
+            let priceConverted = (coinPrice).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+
             list.innerHTML = `<td><img src="${coins[coin].image.small}" alt="${coins[coin].id}"></img>
             <span><strong>${coins[coin].name}</strong>${coins[coin].symbol}</span></td>
-            <td>${coins[coin].market_data.current_price.usd}</td>
-            <td><button type="button" onclick="onAddCoin('${coins[coin].symbol}', '${coins[coin].market_data.current_price.usd}')" class="btn btn-primary">Add</button></td>`;
+            <td class="price">$${priceConverted}</td>
+            <td><button type="button" onclick="onAddCoin('${coins[coin].name}', '${coins[coin].symbol}', '${coins[coin].market_data.current_price.usd}')" class="btn btn-primary">+</button></td>`;
             document.querySelector('#all-coins').appendChild(list);
         });
     })
