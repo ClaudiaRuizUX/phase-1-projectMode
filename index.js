@@ -48,10 +48,17 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchMyCoins().then(coins => {
         Object.keys(coins).forEach(coin => {
             let list = document.createElement('tr');
+
+            let coinPrice = coins[coin].price;
+            // console.log(coins[coin].price);
+            //let priceConverted = (coinPrice).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+
             list.innerHTML =
             `
-            <td><span>${coins[coin].symbol}</span>${coins[coin].price}</td>
-            <td><button type="button" onclick="deleteMyCoin(${coins[coin].id})" class="btn btn-primary">delete</button></td>
+            <td>
+            <span class="symbol">${coins[coin].symbol}</span>$${coinPrice}
+            <span onclick="deleteMyCoin(${coins[coin].id})" class="btn delete material-icons">delete_outline</span>
+            </td>
             `;
             document.querySelector('#my-coins').appendChild(list);
         })

@@ -36,7 +36,7 @@ h4 {
 .allCoins-container{
     display:block;
     position:relative;
-    max-height: 37rem;
+    max-height: 43rem;
     max-width: 50rem;
     overflow: scroll;
     margin: 0 auto;
@@ -45,12 +45,13 @@ h4 {
     background: linear-gradient(180deg, rgba(246,247,250,1) 0%, rgba(246,247,250,1) 9%, rgba(255,255,255,1) 41%, rgba(255,255,255,1) 100%);
     -webkit-box-shadow: 0px 50px 50px 19px rgba(120,129,135,0.19); 
     box-shadow: 0px 50px 50px 19px rgba(120,129,135,0.19);
+   
     -webkit-border-radius: 12px;
     -moz-border-radius: 12px;
     border-radius: 12px;
 }
 
-/* LIST TD------ */
+/* list td ------ */
 tbody#all-coins td {
     padding: 1.2rem 0;
 
@@ -82,6 +83,7 @@ tbody#all-coins td button {
     width:4.2rem;
     height:4.2rem;
     margin-top:0.5rem;
+
     font-size: 2.6rem;
     font-weight: light;
     line-height:1;
@@ -91,7 +93,8 @@ tbody#all-coins td button {
     -moz-border-radius: 50%;
     border-radius: 50%;
 }
-/* LIST TR------ */
+
+/* list tr ------ */
 div.allCoins-container tr th.coinHeader {
     padding-left: 2.4rem;
 }
@@ -109,3 +112,67 @@ tbody#all-coins td.addedCoin {
     color: red;
     border: 1px solid red !important;
 }
+
+/* footer ------ */
+/* div.myCoins-container {
+    position:relative;
+} */
+div.myCoins-container .table-container{
+    position:absolute;
+    bottom: 0;
+}
+div.myCoins-container thead {   
+    visibility: hidden;
+}
+tbody#my-coins {
+    display: inline-flex;
+}
+tbody#my-coins tr {
+    text-align:center;
+    border:none;
+    margin:0;
+}
+
+tbody#my-coins td {
+    position: relative;
+    padding-right:1.2rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.15rem;
+
+    font-size:2.1rem;
+    font-weight:lighter;
+    color:white;
+    background-color:#000;
+}
+tbody#my-coins td span.symbol {
+    margin-right: 0.6rem;
+    margin-left:0;
+    padding-left: 1.2rem;
+
+    font-size:1.8rem;
+    font-weight:light;
+    color:#AAAAAA;
+    text-transform: uppercase;
+}
+tbody#my-coins td:hover {
+    background-color:#4530C8;
+}
+tbody#my-coins td span.delete{
+    visibility: hidden;
+    position: absolute;
+    left:40%;
+    text-align:center;
+    padding: 0.4rem 0.4rem;
+
+    color:#4E59F2;
+    background-color:white;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+}
+tbody#my-coins tr:hover span.delete {
+    visibility:visible;
+}  
+tbody#my-coins tr:nth-child(even) td {
+    background-color: #222222;
+}  
