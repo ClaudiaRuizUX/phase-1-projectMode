@@ -89,4 +89,4 @@ function loadCoins(){
     });
 }
 
-setTimeout(loadCoins(), 3000);
+setTimeout(loadCoins(), 300000);
