@@ -100,6 +100,7 @@ div.allCoins-container tr th.coinHeader {
 }
 tbody#all-coins tr:hover {
     background-color:#EBF0FF;
+    cursor:pointer;
 }
 tbody#all-coins tr:hover button {
     visibility: visible;
@@ -154,9 +155,6 @@ tbody#my-coins td span.symbol {
     color:#AAAAAA;
     text-transform: uppercase;
 }
-tbody#my-coins td:hover {
-    background-color:#4530C8;
-}
 tbody#my-coins td span.delete{
     visibility: hidden;
     position: absolute;
@@ -170,9 +168,15 @@ tbody#my-coins td span.delete{
     -moz-border-radius: 50px;
     border-radius: 50px;
 }
+tbody#my-coins tr:hover {
+    cursor:pointer;
+}
 tbody#my-coins tr:hover span.delete {
     visibility:visible;
 }  
 tbody#my-coins tr:nth-child(even) td {
     background-color: #222222;
-}  
+} 
+tbody#my-coins td:hover, tbody#my-coins tr:hover:nth-child(even) td {
+    background-color:#4530C8;
+} 

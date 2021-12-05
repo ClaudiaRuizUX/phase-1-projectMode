@@ -1,0 +1,19 @@
+{
+  "name": "phase-1-projectmode",
+  "version": "1.0.0",
+  "description": "## install json-server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ClaudiaRuizUX/phase-1-projectMode.git"
+  },
+  "author": "Claudia Ruiz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ClaudiaRuizUX/phase-1-projectMode/issues"
+  },
+  "homepage": "https://github.com/ClaudiaRuizUX/phase-1-projectMode#readme"
+}
