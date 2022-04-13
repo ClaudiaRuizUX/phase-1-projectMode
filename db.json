@@ -1,3 +1,9 @@
 {
-  "myCoinResearch": []
+  "myCoinResearch": [
+    {
+      "symbol": "eth",
+      "price": "3184.88",
+      "id": 1
+    }
+  ]
 }

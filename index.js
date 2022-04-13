@@ -1,7 +1,8 @@
 function fetchAllCoins(){
     return fetch('https://api.coingecko.com/api/v3/coins')
     .then(reponse => reponse.json())
-    .then(json => json)
+    .then(json => json) 
+   
 }
 function onAddCoin(id, symbol, price){
     return fetch('http://localhost:3000/myCoinResearch',{
@@ -32,9 +33,11 @@ function loadCoins(){
     document.querySelector('#my-coins').innerHTML = "";
     document.addEventListener('DOMContentLoaded', () => {
         fetchAllCoins().then(coins => {
+            // alert("refreshed");
             Object.keys(coins).forEach(coin => {
                 let list = document.createElement('tr');
                 list.setAttribute("id", `${coins[coin].name}`)
+
     
                 let coinPrice = coins[coin].market_data.current_price.usd;
                 let priceConverted = new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 4 }).format(coinPrice);
@@ -44,7 +47,8 @@ function loadCoins(){
                 onclick="onAddCoin(
                     '${coins[coin].name}', 
                     '${coins[coin].symbol}', 
-                    '${coins[coin].market_data.current_price.usd}')"
+                    '${coins[coin].market_data.current_price.usd}'
+                    )"
                 >
                 <img src="${coins[coin].image.small}" alt="${coins[coin].id}"></img>
                 <span><strong>${coins[coin].name}</strong>${coins[coin].symbol}</span>
@@ -89,4 +93,4 @@ function loadCoins(){
     });
 }
 
-setTimeout(loadCoins(), 300000);
+ setInterval(loadCoins(), 3000);
