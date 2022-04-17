@@ -93,4 +93,4 @@ function loadCoins(){
     });
 }
 
- setInterval(loadCoins(), 3000);
+ //setInterval(loadCoins(), 3000);
