@@ -1,9 +1,29 @@
 {
   "myCoinResearch": [
     {
-      "symbol": "eth",
-      "price": "3184.88",
+      "symbol": "usdt",
+      "price": "1",
       "id": 1
+    },
+    {
+      "symbol": "bnb",
+      "price": "447.85",
+      "id": 2
+    },
+    {
+      "symbol": "usdc",
+      "price": "1",
+      "id": 3
+    },
+    {
+      "symbol": "eth",
+      "price": "2877.88",
+      "id": 4
+    },
+    {
+      "symbol": "usdt",
+      "price": "1",
+      "id": 5
     }
   ]
 }
